@@ -1,7 +1,9 @@
 from fastapi import FastAPI, WebSocket
 from fastapi.middleware.cors import CORSMiddleware
+from .routes import route
 
 app = FastAPI()
+app.include_router(route)
 
 app.add_middleware(
     CORSMiddleware,
