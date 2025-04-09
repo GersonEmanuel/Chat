@@ -1,0 +1,9 @@
+.chat {
+    height: 200px;
+    overflow-y: auto;
+    border: 2px solid rgb(68, 56, 56);
+    padding: 15px;
+
+}
+
+
