@@ -1,4 +1,3 @@
-const username = prompt("inform us a username")
 const chat = document.querySelector("#chat")
 const input = document.querySelector("#messageInput")
 const socket = new WebSocket("ws://localhost:8000/ws")
