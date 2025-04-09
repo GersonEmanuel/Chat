@@ -13,3 +13,7 @@ async def create_user(user):
     
     except Exception as e:
         raise HTTPException(status_code = 500, detail=str(e))
+
+
+@route.get("/"):
+async def get_users()
