@@ -1,5 +1,6 @@
 from .db import database
 from .models import users, messages
+from sqlalchemy import select
 
 
 async def create_user(username:str):
@@ -17,4 +18,6 @@ async def get_user(username:str):
     
 
 async def get_users():
-    query = users.select.all()
+    query = select(users)
+    users = await database.fethc_all(query)
+    return users
