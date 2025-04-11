@@ -1,13 +1,15 @@
-const SOCKET_URL = "ws://127.0.0.1:8000/users"
+const API_URL = "http://localhost:8000/users/";
+
 
 async function createuser(event){
     event.preventDefault();
     try {
-        user = document.querySelector("#user")
-        const response = await fetch(SOCKET_URL, {
+        user_input = document.querySelector("#user")
+        user = user_input.value;
+        const response = await fetch(API_URL, {
             method: 'POST',
             headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({username})
+            body: JSON.stringify({user})
         });
 
         if (!response.ok){
@@ -24,7 +26,7 @@ async function createuser(event){
 
 async function getusers(event){
     event.preventDefault();
-    const response = await fetch(SOCKET_URL)
+    const response = await fetch(API_URL)
     if(!response.ok){
         throw new Error("error to get users")
     }
@@ -46,4 +48,4 @@ async function add_user_to_p(){
 
 }
 
-document.addEventListener("submit", createuser)
+document.querySelector("#senduser").addEventListener("submit", createuser)
