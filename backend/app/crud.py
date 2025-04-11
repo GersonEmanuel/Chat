@@ -15,16 +15,21 @@ async def create_user(username:str):
 
 async def get_user(username:str):
     await get_db_connection()
+
     query = users.select().where(users.c.username == username)
     user = await database.fetch_one(query)
-    close_db_connection()
+
+    await close_db_connection()
     if user:
         return user
     
 
 async def get_users():
-    get_db_connection()
+    await get_db_connection()
+
     query = select(users)
-    users = await database.fethc_all(query)
-    close_db_connection()
-    return users
+    results = await database.fetch_all(query)
+
+    await close_db_connection()
+
+    return results

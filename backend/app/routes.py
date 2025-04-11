@@ -16,7 +16,7 @@ async def create_user(user):
 
 
 @route.get("/")
-async def get_users():
+async def get_users_route():
     try:
         users = await get_users()
         return users
