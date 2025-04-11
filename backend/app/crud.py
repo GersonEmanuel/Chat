@@ -3,12 +3,12 @@ from .models import users, messages
 from sqlalchemy import select
 
 
-async def create_user(username:str):
+async def create_user(user):
     await get_db_connection()
-    insert_query = users.insert().values(username=username)
-    user_id = await database.execute(insert_query)
+    insert_query = users.insert().values(username=user.username)
+    await database.execute(insert_query)
     await close_db_connection()
-    return {"id": user_id, "username": username}
+    return { "username": user.username}
 
 
 
