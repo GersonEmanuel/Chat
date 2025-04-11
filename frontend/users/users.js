@@ -4,12 +4,11 @@ const API_URL = "http://localhost:8000/users/";
 async function createuser(event){
     event.preventDefault();
     try {
-        user_input = document.querySelector("#user")
-        user = user_input.value;
+        user_input = document.querySelector("#user").value
         const response = await fetch(API_URL, {
-            method: 'POST',
+            method: "POST",
             headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({user})
+            body: JSON.stringify({username: user_input})
         });
 
         if (!response.ok){
