@@ -1,9 +1,9 @@
 const SOCKET_URL = "ws://127.0.0.1:8000/users"
 
 async function createuser(event){
-    user = document.querySelector("#user")
     event.preventDefault();
     try {
+        user = document.querySelector("#user")
         const response = await fetch(SOCKET_URL, {
             method: 'POST',
             headers: {"Content-Type": "application/json"},
