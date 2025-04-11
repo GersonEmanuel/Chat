@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException, APIRouter
-from .models import users
-from .crud import create_user, get_users
-from .schemas import User
+from ..models.users import users
+from ..crud.users import create_user, get_users
+from ..schemas.users import User
 
 
 route = APIRouter(prefix="/users", tags=["Users"])

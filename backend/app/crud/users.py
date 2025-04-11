@@ -1,7 +1,7 @@
-from .db import database, get_db_connection, close_db_connection
-from .models import users, messages
+from ..database.db import database, get_db_connection, close_db_connection
+from ..models.users import users, messages
 from sqlalchemy import select
-from .schemas import User
+from ..schemas.users import User
 
 
 async def create_user(user: User):

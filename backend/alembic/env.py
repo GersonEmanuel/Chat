@@ -25,7 +25,7 @@ if config.config_file_name is not None:
 
 # add your model's MetaData object here
 # for 'autogenerate' support
-from app.models import metadata_obj
+from backend.app.models.users import metadata_obj
 # target_metadata = mymodel.Base.metadata
 target_metadata = metadata_obj
 
