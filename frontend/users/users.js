@@ -20,3 +20,18 @@ async function createuser(event){
         alert("error to create the user");
     }
 }
+
+
+async function getusers(event){
+    event.preventDefault();
+    const response = await fetch(SOCKET_URL)
+    if(!response.ok){
+        throw new Error("error to get users")
+    }
+
+    const users = await response.json();
+
+    return users;
+}
+
+document.addEventListener("submit", createuser)
