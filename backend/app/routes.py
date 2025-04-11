@@ -9,6 +9,7 @@ route = APIRouter(prefix="/users", tags=["Users"])
 @route.post("/")
 async def create_user_route(user: User):
     try:
+        print(user)
         await create_user(user)
         return {"message": f"User {user} created"}
     

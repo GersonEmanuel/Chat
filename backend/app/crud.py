@@ -1,14 +1,17 @@
 from .db import database, get_db_connection, close_db_connection
 from .models import users, messages
 from sqlalchemy import select
+from .schemas import User
 
 
-async def create_user(user):
+async def create_user(user: User):
     await get_db_connection()
-    insert_query = users.insert().values(username=user)
+
+    insert_query = users.insert().values(username=user.username)
     await database.execute(insert_query)
     await close_db_connection()
-    return { "username": user}
+
+    return { "username": user.username }
 
 
 
