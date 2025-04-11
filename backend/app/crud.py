@@ -5,10 +5,10 @@ from sqlalchemy import select
 
 async def create_user(user):
     await get_db_connection()
-    insert_query = users.insert().values(username=user.username)
+    insert_query = users.insert().values(username=user)
     await database.execute(insert_query)
     await close_db_connection()
-    return { "username": user.username}
+    return { "username": user}
 
 
 

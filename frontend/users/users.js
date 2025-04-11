@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8000/users/";
+const API_URL = "http://localhost:8000/users";
 
 
 async function createuser(event){
@@ -6,6 +6,7 @@ async function createuser(event){
     try {
         user_input = document.querySelector("#user")
         user = user_input.value;
+        console.log(user);
         const response = await fetch(API_URL, {
             method: 'POST',
             headers: {"Content-Type": "application/json"},
