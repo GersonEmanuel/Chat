@@ -34,4 +34,16 @@ async function getusers(event){
     return users;
 }
 
+
+async function add_user_to_p(){
+    const div = document.querySelector("#users");
+    const users = getusers();
+
+    users.forEach(user => {
+        const p = document.createElement("p");
+        p.innerText(`${user}`)
+    })
+
+}
+
 document.addEventListener("submit", createuser)
